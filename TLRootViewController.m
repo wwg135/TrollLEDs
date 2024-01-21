@@ -87,7 +87,7 @@
         else if ([vendor respondsToSelector:@selector(registerClientWithPID:stealingBehavior:deviceSharingWithOtherClientsAllowed:deviceAvailabilityChangedHandler:)])
             client = [vendor registerClientWithPID:pid stealingBehavior:1 deviceSharingWithOtherClientsAllowed:YES deviceAvailabilityChangedHandler:NULL];
         else {
-            [self printError:@"Could not register client"];
+            [self printError:@"无法注册用户端"];
             return NO;
         }
         int error;
@@ -109,7 +109,7 @@
             [inv invoke];
             [inv getReturnValue:&streamRef];
         } else {
-            [self printError:@"Could not get device"];
+            [self printError:@"无法获取设备"];
             return NO;
         }
     }
@@ -119,7 +119,7 @@
     } else
         stream = [vendor copyStreamForFlashlightWithPosition:1 deviceType:2 forDevice:device];
     if (!streamSetProperty && !stream) {
-        [self printError:@"Could not get stream"];
+        [self printError:@"无法获取数据流"];
         return NO;
     }
     return YES;
@@ -146,20 +146,20 @@
     if (dual) {
         switch (index) {
             case 0:
-                return @"Torch Level";
+                return @"手电筒亮度";
             case 1:
-                return @"Warmth";
+                return @"色温";
         }
     } else {
         switch (index) {
             case 0:
-                return @"Cool LED 0";
+                return @"冷色 LED 0";
             case 1:
-                return @"Cool LED 1";
+                return @"冷色 LED 1";
             case 2:
-                return @"Warm LED 0";
+                return @"暖色 LED 0";
             case 3:
-                return @"Warm LED 1";
+                return @"暖色 LED 1";
         }
     }
     return @"";
@@ -170,8 +170,8 @@
     return isWarm ? [UIColor systemOrangeColor] : [UIColor whiteColor];
 }
 
-- (NSString *)switchLabel {
-    return locked ? @"On: Only TrollLEDs can control the LEDs" : @"Off: Release the LEDs to other apps (this may take few seconds)";
+- (NSString *)switchLabel:(BOOL)locked {
+    return locked ? @"开启：仅 TrollLEDs 可以控制 LED 灯" : @"关闭：释放 LED 灯给其他应用程序（这可能需要几秒钟）";
 }
 
 - (void)viewDidLoad {
