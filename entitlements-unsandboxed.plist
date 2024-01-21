@@ -6,8 +6,6 @@
     <string>com.ps.TrollLEDs</string>
     <key>com.apple.camera.iokit-user-access</key>
     <true/>
-    <key>com.apple.system.diagnostics.iokit-properties</key>
-    <true/>
     <key>com.apple.security.exception.iokit-user-client-class</key>
     <array>
         <string>AGXDeviceUserClient</string>
@@ -17,17 +15,7 @@
         <string>AppleH13CamInUserClient</string>
         <string>IOSurfaceRootUserClient</string>
     </array>
-    <key>com.apple.security.exception.mach-lookup.global-name</key>
-    <array>
-        <string>com.apple.applecamerad</string>
-        <string>com.apple.appleh6camerad</string>
-        <string>com.apple.appleh9camerad</string>
-        <string>com.apple.appleh10camerad</string>
-        <string>com.apple.appleh13camerad</string>
-    </array>
-    <key>sysctl-read</key>
-    <array>
-        <string>kern.bootargs</string>
-    </array>
+    <key>com.apple.private.security.no-sandbox</key>
+    <true/>
 </dict>
 </plist>
