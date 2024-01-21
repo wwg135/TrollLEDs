@@ -48,16 +48,19 @@ jobs:
           echo -e "> - 同步官方最新代码，由M哥汉化编译TrollLEDs." >> release.txt
 
       - name: Build deb and ipa
-        run: ./build.sh
+        run: | 
+          ./build.sh
+          mv TrollLEDs.tipa TrollLEDs.ipa
 
       - name: Release deb and ipa
         uses: softprops/action-gh-release@v1
         with:
           name: TrollLEDs_${{ env.VERSION }}
           tag_name: ${{ env.msT }}
-          target_commitish: master
+          target_commitish: main
           body_path: release.txt
           latest: true
           token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
           files: |
-           ./packages/com.roothide.patcher_1.5-1+debug_iphoneos-arm64e.deb
+           *.ipa
+           *.deb
