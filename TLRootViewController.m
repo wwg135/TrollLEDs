@@ -170,7 +170,7 @@
     return isWarm ? [UIColor systemOrangeColor] : [UIColor whiteColor];
 }
 
-- (NSString *)switchLabel:(BOOL)locked {
+- (NSString *)switchLabel {
     return locked ? @"开启：仅 TrollLEDs 可以控制 LED 灯" : @"关闭：释放 LED 灯给其他应用程序（这可能需要几秒钟）";
 }
 
