@@ -2,9 +2,9 @@ name: Build and Package
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "1.6.1" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "1.6.1" ]
   workflow_dispatch:
 
 env:
