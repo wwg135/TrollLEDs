@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  VERSION: '1.2.0'
+  VERSION: '1.6.1'
 
 jobs:
   build:
@@ -57,7 +57,7 @@ jobs:
         with:
           name: TrollLEDs_${{ env.VERSION }}
           tag_name: ${{ env.msT }}
-          target_commitish: main
+          target_commitish: 1.6.1
           body_path: release.txt
           latest: true
           token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
