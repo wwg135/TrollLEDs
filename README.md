@@ -17,6 +17,8 @@ Quad-LEDs devices are the devices that the private API `SetTorchManualParameters
 
 ### LED Sliders
 
+### Sliders
+
 There are four sliders in the app:
 
 1. `Cool LED 0` - The brightness of the first white LED

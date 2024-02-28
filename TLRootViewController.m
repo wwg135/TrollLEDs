@@ -160,20 +160,20 @@
     if ([_deviceManager isLegacyLEDs]) {
         switch (index) {
             case 0:
-                return @"Torch Level";
+                return @"手电筒亮度";
             case 1:
-                return @"Warmth";
+                return @"色温";
         }
     } else {
         switch (index) {
             case 0:
-                return @"Cool LED 0";
+                return @"冷色 LED 0";
             case 1:
-                return @"Cool LED 1";
+                return @"冷色 LED 1";
             case 2:
-                return @"Warm LED 0";
+                return @"暖色 LED 0";
             case 3:
-                return @"Warm LED 1";
+                return @"暖色 LED 1";
         }
     }
     return @"";
@@ -185,7 +185,7 @@
 }
 
 - (NSString *)switchLabel {
-    return locked ? @"On: Only TrollLEDs can control the LEDs" : @"Off: Release the LEDs to other apps (this may take few seconds)";
+    return locked ? @"开启：仅 TrollLEDs 可以控制 LED 灯" : @"关闭：释放 LED 灯给其他应用程序（这可能需要几秒钟）";
 }
 
 - (void)configureTableView {
