@@ -2,27 +2,29 @@
 
  A TrollStore application to control individual flashlight LEDs for iOS devices.
 
- When used on a jailbroken device, remove Amber tweak becase this app will simply be overridden by it.
+ When used on a jailbroken device, remove Amber tweak because this app will simply be overridden by it.
 
 ## Supported Devices
 
-- iOS 12 or higher, lower versions are not supported/tested
+- iOS 11 or higher
 - iPhone or iPad with multiple of different flashlight LEDs (e.g. amber and regular white)
-- Devices with single-color flashlight LED(s) are not supported, such as iPhone 4s and iPhone 5
+- Devices with a single-color flashlight LED are not supported, such as iPhone 4s and iPhone 5
 - **iPhone 14 series and higher are not supported**, as [Apple has completely redesigned the flashlight LEDs](https://appleinsider.com/articles/22/09/20/how-iphone-14-pro-adaptive-true-tone-flash-creates-perfect-light-for-your-photos)
 
 ## Usage (Quad-LEDs Devices)
 
-Quad-LEDs devices are devices with four programmatically configurable flashlight LEDs, two white and two amber. This includes the devices such as iPhone 11 and iPad Pro 3rd generation.
+Quad-LEDs devices are the devices that the private API `SetTorchManualParameters` can successfully adjust the LEDs. `SetTorchManualParameters` expects four parameters (LED levels of White 1, White 2, Amber 1 and Amber 2). This includes most modern devices with flashlight LEDs such as iPhone 11 (two physical LEDs) and iPad Pro 3rd generation (four physical LEDs).
+
+### LED Sliders
 
 ### Sliders
 
 There are four sliders in the app:
 
 1. `Cool LED 0` - The brightness of the first white LED
-2. `Cool LED 1` - The brightness of the second white LED
+2. `Cool LED 1` - The brightness of the second white LED (if the device has it)
 3. `Warm LED 0` - The brightness of the first amber LED
-4. `Warm LED 1` - The brightness of the second amber LED
+4. `Warm LED 1` - The brightness of the second amber LED (if the device has it)
 
 Each slider can be adjusted independently. The more the value, the more brightness of the LED will get. If the value is set to 0, the LED will be off. If all sliders are set to 0, all LEDs will be off.
 
@@ -42,7 +44,7 @@ If the value is set to `Quad`, the app shortcuts will maximize all related slide
 
 ## Usage (Dual-LEDs Devices)
 
-Dual-LEDs devices are devices with two programmatically configurable flashlight LEDs, such as iPhone 5s and iPhone SE 1st generation.
+Dual-LEDs devices are the devices that the private API `SetTorchManualParameters` cannot be used. They mostly come with two physical LEDs (white and amber), and are old devices, such as iPhone 5s and iPhone SE 1st generation.
 
 There are two sliders in the app:
 
@@ -75,3 +77,4 @@ Build `.tipa` (sandboxed and unsandboxed) and `.deb` (rootful and rootless) with
 
 1. More accessible sliders (are they too small?)
 2. Better error handling?
+3. As AppIntents metadata can only be generated from Xcode, we should find a way to generate it from theos
